@@ -1,4 +1,3 @@
-
 class CelestrialBody {
   constructor(radius, color) {
     this.radius = radius * dUnits;
@@ -34,57 +33,96 @@ class Planet extends CelestrialBody {
 
 class Sun extends CelestrialBody {
   constructor(x, y, radius) {
-    super(radius, '#f5e633')
-    this.x = x
-    this.y = y
+    super(radius, "#f5e633");
+    this.x = x;
+    this.y = y;
   }
+}
+
+
+function realisticSetup(width, height) {
+  // Radius values are relatve to Earth (Earth = 1)
+  sun = new Sun(width / 2, height / 2, 109);
+
+  // Orbital radius are distances 10^10 meters from Sun
+  let mercury = new Planet(0.4, 5.67, 1 / 0.88, "#c9c8c7", sun);
+  planets.push(mercury);
+
+  let venus = new Planet(0.9, 10.7, 1 / 2.25, "#f2d79e", sun);
+  planets.push(venus);
+
+  let earth = new Planet(1, 15.1, 1 / 3.65, "#287ab8", sun);
+  planets.push(earth);
+
+  let mars = new Planet(0.5, 20.8, 1 / 6.87, "#c65836", sun);
+  planets.push(mars);
+
+  let jupiter = new Planet(11.2, 74.2, 1 / 43.33, "#e3b371", sun);
+  planets.push(jupiter);
+
+  let saturn = new Planet(9.4, 147.7, 1 / 107.59, "#eac757", sun);
+  planets.push(saturn);
+
+  let uranus = new Planet(4, 294.6, 1 / 306.87, "#eac757", sun);
+  planets.push(uranus);
+
+  let neptune = new Planet(3.9, 447.5, 1 / 601.9, "#88baf0", sun);
+  planets.push(neptune);
+}
+
+function compactSetup(width, height) {
+  // Radius values are relatve to Earth (Earth = 1)
+  sun = new Sun(width / 2, height / 2, 12);
+
+  // Orbital radius are distances 10^10 meters from Sun
+  let mercury = new Planet(0.4, 2, 1 / 0.88, "#c9c8c7", sun);
+  planets.push(mercury);
+
+  let venus = new Planet(0.9, 4, 1 / 2.25, "#f2d79e", sun);
+  planets.push(venus);
+
+  let earth = new Planet(1, 6, 1 / 3.65, "#287ab8", sun);
+  planets.push(earth);
+
+  let mars = new Planet(0.5, 8, 1 / 6.87, "#c65836", sun);
+  planets.push(mars);
+
+  let jupiter = new Planet(6, 35, 1 / 43.33, "#e3b371", sun);
+  planets.push(jupiter);
+
+  let saturn = new Planet(3, 50, 1 / 107.59, "#eac757", sun);
+  planets.push(saturn);
+
+  let uranus = new Planet(2, 60, 1 / 306.87, "#eac757", sun);
+  planets.push(uranus);
+
+  let neptune = new Planet(2, 70, 1 / 601.9, "#88baf0", sun);
+  planets.push(neptune);
 }
 
 let sun;
 let planets = [];
-let dUnits = 2.5;
+let dUnits = 5;
 let tUnits = 10000;
+let realistic = false;
 
 function setup() {
   let width = 1900;
   let height = 1000;
 
   createCanvas(width, height);
-
-  // Radius values are relatve to Earth (Earth = 1)
-  sun = new Sun(width/2, height/2, 109);
-
-  // Orbital radius are distances 10^10 meters from Sun
-  let mercury = new Planet(0.4, 5.67, 1/0.88, "#c9c8c7", sun);
-  planets.push(mercury);
-
-  let venus = new Planet(0.9, 10.7, 1/2.25, "#f2d79e", sun);
-  planets.push(venus);
-  
-  let earth = new Planet(1, 15.1, 1/3.65, "#287ab8", sun);
-  planets.push(earth);
-
-  let mars = new Planet(0.5, 20.8, 1/6.87, "#c65836", sun);
-  planets.push(mars);
-
-  let jupiter = new Planet(11.2, 74.2, 1/43.33, "#e3b371", sun);
-  planets.push(jupiter);
-  
-  let saturn = new Planet(9.4, 147.7, 1/107.59, "#eac757", sun);
-  planets.push(saturn);
-
-  let uranus = new Planet(4, 294.6, 1/306.87, "#eac757", sun);
-  planets.push(uranus);
-  
-  let neptune = new Planet(3.9, 447.5, 1/601.90, "#88baf0", sun);
-  planets.push(neptune);
+  if (realistic) {
+    realisticSetup(width, height);
+  } else {
+    compactSetup(width, height);
+  }
 }
 
 function draw() {
   background("#0f0f0f");
-  sun.create()
+  sun.create();
   for (let planet of planets) {
-    planet.create()
-    planet.orbit()
+    planet.create();
+    planet.orbit();
   }
 }
