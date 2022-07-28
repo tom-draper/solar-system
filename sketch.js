@@ -40,7 +40,7 @@ class Sun extends CelestrialBody {
 }
 
 
-function realisticSetup(width, height) {
+function realisticSolarSystem(width, height) {
   // Radius values are relatve to Earth (Earth = 1)
   sun = new Sun(width / 2, height / 2, 109);
 
@@ -70,7 +70,7 @@ function realisticSetup(width, height) {
   planets.push(neptune);
 }
 
-function compactSetup(width, height) {
+function compactSolarSystem(width, height) {
   // Radius values are relatve to Earth (Earth = 1)
   sun = new Sun(width / 2, height / 2, 12);
 
@@ -112,9 +112,9 @@ function setup() {
 
   createCanvas(width, height);
   if (realistic) {
-    realisticSetup(width, height);
+    realisticSolarSystem(width, height);
   } else {
-    compactSetup(width, height);
+    compactSolarSystem(width, height);
   }
 }
 
