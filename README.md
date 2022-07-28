@@ -1,4 +1,4 @@
-# solar-system
+# Solar System Animation
 A solar system animation made with p5js.
 
 Compact view with proportional oribtal speed but incorrect shown below. A version with proportional planet sizes and orbit radii is also implemented.
