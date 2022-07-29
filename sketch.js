@@ -16,12 +16,12 @@ class Planet extends CelestrialBody {
     super(radius, color, dUnits);
     this.orbitRadius = orbitRadius * dUnits + sun.radius;
 
+    this.sun = sun;
     this.x = 0;
     this.y = 0;
     this.orbitAngle = 0; // Degrees relative to x axis
 
     this.orbitAngleDelta = speed * tUnits * Math.pow(this.orbitRadius, -1.5);
-    this.sun = sun;
   }
 
   orbit() {
@@ -41,8 +41,10 @@ class Sun extends CelestrialBody {
 
 class SolarSystem {
   constructor(realistic = true, width = 1900, height = 1000) {
-    this.sun = undefined;
+    this.sun;
     this.planets = [];
+    this.dUnits;  // Scales any distance values
+    this.tUnits;  // Scales any time values
 
     createCanvas(width, height);
     if (realistic) {
@@ -52,6 +54,9 @@ class SolarSystem {
     }
   }
 
+  /*
+   * Create solar system with proportional distances, speeds and planet sizes.
+  */
   realistic(width, height, dUnits = 1.3, tUnits = 1000) {
     this.dUnits = dUnits;
     this.tUnits = tUnits;
@@ -148,6 +153,9 @@ class SolarSystem {
     this.planets.push(neptune);
   }
 
+  /*
+   * Create solar system that not proportional, but easier to view.
+   */
   compact(width, height, dUnits = 5, tUnits = 1000) {
     this.dUnits = dUnits;
     this.tUnits = tUnits;
@@ -245,9 +253,8 @@ class SolarSystem {
   }
 
   animate() {
-    background("#000000");
+    background("#000000");  // Hide any previously drawn celestrial bodies
     this.sun.draw();
-    console.log(this.planets);
     for (let planet of this.planets) {
       planet.draw();
       planet.orbit();
