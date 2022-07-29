@@ -5,4 +5,4 @@ Compact view with proportional oribtal speed but incorrect shown below. A versio
 
 Todo: Elliptical orbits
 
-![Demo](https://user-images.githubusercontent.com/41476809/181555360-a9741fd0-11ae-453c-ad84-a8bdd15bd5d4.gif)
+![Demo](https://user-images.githubusercontent.com/41476809/181587158-c2049c05-5b92-4ade-8cd9-7244d51f1b76.gif)
