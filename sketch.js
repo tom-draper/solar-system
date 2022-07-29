@@ -40,7 +40,7 @@ class Sun extends CelestrialBody {
 }
 
 class SolarSystem {
-  constructor(realistic = true, width = 1900, height = 1000) {
+  constructor(realistic = false, width = 1900, height = 1000) {
     this.sun;
     this.planets = [];
     this.dUnits;  // Scales any distance values
@@ -111,7 +111,7 @@ class SolarSystem {
     let jupiter = new Planet(
       11.2,
       74.2,
-      1 / 43.33,
+      1 / 4.333,
       "#e3b371",
       this.sun,
       this.dUnits,
@@ -210,7 +210,7 @@ class SolarSystem {
     let jupiter = new Planet(
       6,
       65,
-      1 / 43.33,
+      1 / 4.333,
       "#e3b371",
       this.sun,
       this.dUnits,
@@ -264,7 +264,7 @@ class SolarSystem {
 
 let ss;
 function setup() {
-  ss = new SolarSystem();
+  ss = new SolarSystem(false);
 }
 
 function draw() {
