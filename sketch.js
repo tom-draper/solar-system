@@ -156,7 +156,7 @@ class SolarSystem {
   /*
    * Create solar system that not proportional, but easier to view.
    */
-  compact(width, height, dUnits = 5, tUnits = 1000) {
+  compact(width, height, dUnits = 5.4, tUnits = 1000) {
     this.dUnits = dUnits;
     this.tUnits = tUnits;
     // Radius values are relatve to Earth (Earth = 1)
@@ -264,7 +264,7 @@ class SolarSystem {
 
 let ss;
 function setup() {
-  ss = new SolarSystem(false);
+  ss = new SolarSystem(true);
 }
 
 function draw() {
