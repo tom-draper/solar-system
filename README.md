@@ -5,4 +5,6 @@ Compact view with proportional oribtal speed but incorrect shown below. A versio
 
 Todo: Elliptical orbits
 
+To run locally, open <code>index.html</code> in a browser.
+
 ![Demo](https://user-images.githubusercontent.com/41476809/181587158-c2049c05-5b92-4ade-8cd9-7244d51f1b76.gif)
